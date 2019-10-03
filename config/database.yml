@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: LaMaison_development
+
+test:
+  <<: *default
+  database: LaMaison_test
+
+production:
+  <<: *default
+  database: LaMaison_production
+  # username: LaMaison
+  # password: <%= ENV['LAMAISON_DATABASE_PASSWORD'] %>
